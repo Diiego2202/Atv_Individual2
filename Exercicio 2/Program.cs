@@ -1,4 +1,5 @@
 ﻿using SkiaSharp;
+using System.IO;
 
 namespace Projeto
 {
@@ -56,7 +57,10 @@ namespace Projeto
 					{
 						for (int e = 0, s = 0; s < pixelsTotais; e += 4, s++)
 						{
-							AjusteDeBrilho(entrada[e + 2], entrada[e + 1], entrada[e], out saida[s]);
+							if (e + 2 < pixelsTotais * 4 && s < pixelsTotais)
+							{
+								AjusteDeBrilho(entrada[e + 2], entrada[e + 1], entrada[e], out saida[s]);
+							}
 						}
 					}
 				}
