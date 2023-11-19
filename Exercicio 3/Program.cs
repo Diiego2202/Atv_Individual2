@@ -16,27 +16,20 @@ namespace Projeto
 					int altura = bitmapEntrada.Height;
 					int largura = bitmapEntrada.Width;
 
-					int pixelsTotais = bitmapEntrada.Width * bitmapEntrada.Height;
+					int[] qtd_pixels = new int[256];
 
-					int[] pixels = new int[256];
-
-					int pixelsContados = 0;
-
-					for (int y = 0; y < altura; y++)
+					for (int i = 0; i < altura; i++)
 					{
-						for (int x = 0; x < largura; x++)
+						for (int j = 0; j < largura; j++)
 						{
-							pixels[entrada[y * largura + x]] += 1;
+							qtd_pixels[entrada[(i * largura) + j]] += 1;
 						}
 					}
 
-					for (int z = 0; z <= 255; z++)
+					for (int k = 0; k <= 255; k++)
 					{
-						Console.WriteLine("Quantidade de pixels com valor " + z + ": " + pixels[z]);
-						pixelsContados += pixels[z];
+						Console.WriteLine("Quantidade de pixels com valor " + k + ": " + qtd_pixels[k]);
 					}
-					Console.WriteLine("Pixels Totais: " + pixelsTotais);
-					Console.WriteLine("Pixels contados: " + pixelsContados);
 				}
 			}
 		}
